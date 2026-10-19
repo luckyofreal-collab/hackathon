@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111327"><title>Duel Dash — Arcade Showdown</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="shell">
+    <header class="topbar"><a class="brand" href="#" aria-label="Duel Dash home"><span class="brand-mark">D</span><span>DUEL<span class="brand-accent">DASH</span></span></a><span class="top-note"><i></i> LOCAL ARCADE · 2 PLAYERS</span></header>
+    <section id="home-screen" class="screen">
+      <div class="hero"><div class="eyebrow"><span class="eyebrow-line"></span> THE LIVING ROOM LEAGUE</div><h1>ONE KEYBOARD.<br><span class="gradient-text">TWO RIVALS.</span></h1><p class="hero-copy">Three quick-fire games. One champion.<br>Settle it right here.</p></div>
+      <div class="setup-grid">
+        <section class="panel players-panel"><div class="panel-heading"><span class="step">01</span><div><h2>Pick your players</h2><p>Choose names and a match length</p></div></div>
+          <div class="player-inputs"><label class="player-field p1-field"><span class="player-label"><i></i> PLAYER ONE</span><input id="player-one" maxlength="14" value="Player One" aria-label="Player one name"></label><div class="versus">VS</div><label class="player-field p2-field"><span class="player-label"><i></i> PLAYER TWO</span><input id="player-two" maxlength="14" value="Player Two" aria-label="Player two name"></label></div>
+          <div class="series-row"><span class="row-label">MATCH FORMAT</span><div class="segmented" role="group" aria-label="Match format"><button class="format-btn active" data-best="3">BEST OF 3</button><button class="format-btn" data-best="5">BEST OF 5</button></div></div>
+        </section>
+        <section class="panel games-panel"><div class="panel-heading"><span class="step">02</span><div><h2>Choose your games</h2><p>Any combination. Every round counts.</p></div><span class="game-count"><b id="game-count">3</b> / 3</span></div>
+          <div class="game-list">
+            <label class="game-card selected"><input type="checkbox" value="reaction" checked><span class="game-icon reaction-icon">↯</span><span class="game-info"><strong>Reaction Duel</strong><small>Wait for green. Strike first.</small></span><span class="game-meta"><span class="tag easy">QUICK</span><span class="checkmark">✓</span></span></label>
+            <label class="game-card selected"><input type="checkbox" value="typing" checked><span class="game-icon typing-icon">⌨</span><span class="game-info"><strong>Typing Race</strong><small>Same words. Faster fingers.</small></span><span class="game-meta"><span class="tag medium">SKILL</span><span class="checkmark">✓</span></span></label>
+            <label class="game-card selected"><input type="checkbox" value="tank" checked><span class="game-icon tank-icon">▣</span><span class="game-info"><strong>Tank Battle</strong><small>Three hits. Last tank standing.</small></span><span class="game-meta"><span class="tag hard">ACTION</span><span class="checkmark">✓</span></span></label>
+          </div>
+        </section>
+      </div>
+      <div class="home-footer"><p class="controls-hint"><span>⌨</span> Same keyboard · No downloads · Just bragging rights</p><button id="start-match" class="primary-btn">START THE SHOWDOWN <span>↗</span></button></div>
+    </section>
+    <section id="match-screen" class="screen hidden">
+      <div class="match-top"><button id="back-home" class="back-btn">← MENU</button><div class="round-label">ROUND <b id="round-number">1</b> <span id="round-of">OF 3</span></div><button id="quit-match" class="quiet-btn">END MATCH</button></div>
+      <div class="scoreboard"><div class="score-player left"><span class="score-dot"></span><div><small>PLAYER ONE</small><strong id="score-name-one">Player One</strong></div><b id="score-one">0</b></div><div class="score-center"><span>MATCH SCORE</span><div class="score-pips" id="score-pips"></div></div><div class="score-player right"><b id="score-two">0</b><div><small>PLAYER TWO</small><strong id="score-name-two">Player Two</strong></div><span class="score-dot"></span></div></div>
+      <div class="match-title"><span id="game-kicker" class="eyebrow">MINIGAME 01</span><h2 id="game-title">Reaction Duel</h2><p id="game-subtitle">Stay sharp. Don't jump the gun.</p></div>
+      <div id="game-stage" class="game-stage"></div>
+      <div class="match-controls"><div><kbd>A</kbd> P1 reaction / tank <span class="control-divider">·</span> <kbd>←</kbd> P2 reaction / tank</div><div>Typing: P1 <kbd>Q</kbd> + P2 <kbd>P</kbd></div></div>
+    </section>
+    <section id="winner-screen" class="screen hidden"><div class="winner-content"><div class="winner-burst">✦</div><div class="eyebrow">THE CROWD HAS A FAVORITE</div><h1><span id="winner-name">PLAYER ONE</span><br><span class="gradient-text">TAKES THE CROWN.</span></h1><p id="winner-copy">A legendary performance. Run it back?</p><div class="final-score"><div><small id="final-label-one">PLAYER ONE</small><strong id="final-score-one">0</strong></div><span>—</span><div><small id="final-label-two">PLAYER TWO</small><strong id="final-score-two">0</strong></div></div><button id="rematch" class="primary-btn">RUN IT BACK <span>↗</span></button><button id="winner-menu" class="text-btn">BACK TO MENU</button></div></section>
+    <footer class="site-footer"><span>DUEL DASH <span class="muted">© 2025</span></span><span class="footer-right">BUILT FOR FRIENDLY RIVALRIES <b>✦</b></span></footer>
+  </main>
+  <div id="countdown" class="countdown hidden" aria-live="assertive"></div>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="main.js"></script>
+</body></html>
